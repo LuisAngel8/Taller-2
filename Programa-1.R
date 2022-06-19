@@ -4,14 +4,14 @@ library(readxl)
 library(ggplot2)
 library(dplyr)
 
-
+#El programa debe ser ejecutado primero.
 main <- function(){
   cat("1. Guardar gapminder \n")
   cat("2. Leer archivo gapminder \n")
-  cat("3. Desplegar diagrama de distribución (lifeExp vs pop) \n")
-  cat("4. Desplegar diagrama de distribución (gdpPercap vs pop) \n")
+  cat("3. Desplegar diagrama de distribuciÃ³n (lifeExp vs pop) \n")
+  cat("4. Desplegar diagrama de distribuciÃ³n (gdpPercap vs pop) \n")
   cat("5. Desplegar diagrama de cajas de gdpPercap por continente desde 1990 a 2007 \n\n")
-  cat("Presione cualquier otra número para SALIR")
+  cat("Presione cualquier otra nÃºmero para SALIR")
   val <- as.integer(readline("Ingrese un valor: "))
   
   if(val == 1) {
@@ -21,27 +21,25 @@ main <- function(){
       gapminder[ran,i] <- NA
     }
     #Save file gapminder with extension .xlsx.
-    library(writexl)
     write_xlsx(gapminder, "gapminder.xlsx")
     print("Se ha guardado el archivo")
     
   } else {
     if(val == 2) {
       
-      library(readxl)
       read_excel("gapminder.xlsx")
-      print("Se ha leído el archivo")
+      print("Se ha leÃ­do el archivo")
       
     } else {
       if(val == 3) {
         #Distribution lifeExp vs pop
         ggplot(gapminder, aes(x = lifeExp, y = log(pop), col = continent, 
-                              xlab ="Expectativa de vida", ylab = "log(Población)"))+geom_jitter(na.rm = TRUE, alpha = 0.3)
+                              xlab ="Expectativa de vida", ylab = "log(PoblaciÃ³n)"))+geom_jitter(na.rm = TRUE, alpha = 0.3)
       } else {
         if (val == 4) {
           #Distribution gdpPercap vs pop
           ggplot(gapminder, aes(x = log(gdpPercap), y = log(pop), col = continent, 
-                                ylab = "Población"))+geom_jitter(na.rm = TRUE, alpha = 0.3)
+                                ylab = "PoblaciÃ³n"))+geom_jitter(na.rm = TRUE, alpha = 0.3)
         } else {
           if (val == 5) {
           #boxplot gdpPercap x continent between 1990 to 2007.
@@ -50,7 +48,7 @@ main <- function(){
           ggplot(gap, aes(x = continent, y = log(gdpPercap), col = continent))+geom_boxplot(na.rm = TRUE, alpha = 0.3)
           
           } else {
-            print("Salió del menú de opciones")
+            print("SaliÃ³ del menÃº de opciones")
           }
         }
       }
@@ -58,6 +56,7 @@ main <- function(){
   }
 }
 
-
+#Se debe utilizar la funciÃ³n main() cada vez que se vaya eligir una opciÃ³n
+main()
 
 
