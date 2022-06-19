@@ -4,7 +4,7 @@ library(readxl)
 library(ggplot2)
 library(dplyr)
 
-#El programa debe ser ejecutado primero.
+#El programa debe ser ejecutado primero para que la función sea almacenada.
 main <- function(){
   cat("1. Guardar gapminder \n")
   cat("2. Leer archivo gapminder \n")
