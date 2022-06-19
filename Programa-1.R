@@ -8,10 +8,10 @@ library(dplyr)
 main <- function(){
   cat("1. Guardar gapminder \n", quote = FALSE)
   cat("2. Leer archivo gapminder \n", quote = FALSE)
-  cat("3. Desplegar diagrama de distribución (lifeExp vs pop) \n", quote = FALSE)
-  cat("4. Desplegar diagrama de distribución (gdpPercap vs pop) \n", quote = FALSE)
+  cat("3. Desplegar diagrama de distribuciÃ³n (lifeExp vs pop) \n", quote = FALSE)
+  cat("4. Desplegar diagrama de distribuciÃ³n (gdpPercap vs pop) \n", quote = FALSE)
   cat("5. Desplegar diagrama de cajas de gdpPercap por continente desde 1990 a 2007 \n", quote = FALSE)
-  cat("Presione cualquier otra número para SALIR")
+  cat("Presione cualquier otra nÃºmero para SALIR")
   val <- as.integer(readline("Ingrese un valor: "))
   
   if(val == 1) {
@@ -30,18 +30,18 @@ main <- function(){
       
       library(readxl)
       read_excel("gapminder.xlsx")
-      print("Se ha leído el archivo")
+      print("Se ha leÃ­do el archivo")
       
     } else {
       if(val == 3) {
         #Distribution lifeExp vs pop
         ggplot(gapminder, aes(x = lifeExp, y = log(pop), col = continent, 
-                              xlab ="Expectativa de vida", ylab = "log(Población)"))+geom_jitter(na.rm = TRUE, alpha = 0.3)
+                              xlab ="Expectativa de vida", ylab = "log(PoblaciÃ³n)"))+geom_jitter(na.rm = TRUE, alpha = 0.3)
       } else {
         if (val == 4) {
           #Distribution gdpPercap vs pop
           ggplot(gapminder, aes(x = log(gdpPercap), y = log(pop), col = continent, 
-                                ylab = "Población"))+geom_jitter(na.rm = TRUE, alpha = 0.3)
+                                ylab = "PoblaciÃ³n"))+geom_jitter(na.rm = TRUE, alpha = 0.3)
         } else {
           if (val == 5) {
           #boxplot gdpPercap x continent between 1990 to 2007.
@@ -50,7 +50,7 @@ main <- function(){
           ggplot(gap, aes(x = continent, y = log(gdpPercap), col = continent))+geom_boxplot(na.rm = TRUE, alpha = 0.3)
           
           } else {
-            print("Salió del menú de opciones")
+            print("SaliÃ³ del menÃº de opciones")
           }
         }
       }
@@ -58,51 +58,5 @@ main <- function(){
   }
 }
 
-gapminder %>% 
-  filter(year >= 1990) %>% 
-  ggplot(aes(x = continent, y = log(gdpPercap), col = continent))+
-  geom_boxplot(alpha = 0.3)
-  
-# gapminder
-# 
-# vec <- sort(sample(1:length(gapminder$lifeExp), size = length(gapminder$lifeExp) * 0.10))
-# gapminder$lifeExp <- replace(gapminder$lifeExp, list = vec, values = NA)
-# vec
-# 
-# vec2 <- sort(sample(1:length(gapminder$pop), size = length(gapminder$pop) * 0.10))
-# gapminder$pop <- replace(gapminder$pop, list = vec2, values = NA)
-# vec2
-# 
-# vec3 <- sort(sample(1:length(gapminder$gdpPercap), size = length(gapminder$gdpPercap) * 0.10))
-# gapminder$gdpPercap <- replace(gapminder$gdpPercap, list = vec3, values = NA)
-# vec3
-
-for (i in c("lifeExp", "pop", "gdpPercap")) {
-  ran <- sample(1:length(gapminder$lifeExp), size = length(gapminder$lifeExp) * 0.1, replace = FALSE)
-  gapminder[ran,i] <- NA
-}
-
-sum(is.na(gapminder$lifeExp))
-# gapminder$lifeExp[sample(nrow(gapminder),length(gapminder$lifeExp)*0.10)] <- NA
-# gapminder$lifeExp
-
-# val_rep <- sample(gapminder$lifeExp, size = length(gapminder$lifeExp) * 0.10)
-# col_rep <- c("lifeExp", "gdpPercap", "pop")
-# 
-# gapminder[col_rep] <- sapply(gapminder[col_rep],
-#                              function(x) replace(x, x %in% val_rep, NA))
-
-
-write_xlsx(gapminder, "gapminder.xlsx")
-
-library("readxl")
-read_excel("C:\\Users\\Luis Angel\\Documents\\Unal\\ProgramacionR\\gapminder.xlsx")
-
-ggplot(gapminder, aes(x = lifeExp, y = log(pop), col = continent, xlab ="Expectativa de vida", ylab = "log(Población)"))+geom_jitter(na.rm = TRUE, alpha = 0.3)
-ggplot(gapminder, aes(x = log(gdpPercap), y = log(pop), col = continent, ylab = "Población"))+geom_jitter(na.rm = TRUE, alpha = 0.3)
-
-vec4 <- c(1990:2007)
-gap <- gapminder[gapminder$year %in% vec4,]
-ggplot(gap, aes(x = continent, y = log(gdpPercap), col = continent))+geom_boxplot(na.rm = TRUE, alpha = 0.3)
-
-
+#Se debe llamar a la funciÃ³n main() para elegir cada opciÃ³n
+main()
