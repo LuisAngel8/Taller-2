@@ -21,14 +21,12 @@ main <- function(){
       gapminder[ran,i] <- NA
     }
     #Save file gapminder with extension .xlsx.
-    library(writexl)
     write_xlsx(gapminder, "gapminder.xlsx")
     print("Se ha guardado el archivo")
     
   } else {
     if(val == 2) {
       
-      library(readxl)
       read_excel("gapminder.xlsx")
       print("Se ha leído el archivo")
       
