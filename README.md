@@ -9,4 +9,10 @@ PASOS PARA LA EJECUCIÓN DEL PROGRAMA-1
 - Una vez almacenada la función, esta puede ser usada en la consola al escribirla de la forma **main()** y elegir la opción que desee según el número que tiene al inicio cada opción. Para el correcto funcionamiento del código se deben ejecutar primero las dos primeras opciones.
 
 #### PROGRAMA 2 ####
+PASOS PARA LA EJECUCIÓN DEL PROGRAMA-2
 
+- Se debe comprobar que las librerias presentes al principio del código ya estén instaladas, en caso que no estén instaladas debe hacerlo con la siguiente instrucción:
+"**install.packages("Nombre del paquete")**"
+- Una vez listo el paso anterior, deberá correr el código presente entre las lineas 8 y 30.
+- Ya tras cumplir con los pasos anteriores puede correr la función "main()".
+    Nota: Debe llamar la función cada vez que quiera acceder a una opción.
