@@ -5,7 +5,7 @@ library(ggpubr) #Instalar este paquete
 library(writexl)
 library(readxl)
 
-#Correr en primer lugar el código que está entre la linea 8 y 28/29.------
+#Correr en primer lugar el código que está entre la linea 8 y 30.------
 #Experimento A
   Flores = data.frame(iris %>% select(Sepal.Length, Sepal.Width, Species) %>% 
                         filter(Species == "setosa" | Species == "versicolor") %>%
