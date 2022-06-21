@@ -16,3 +16,6 @@ PASOS PARA LA EJECUCIÓN DEL PROGRAMA-2
 - Una vez listo el paso anterior, deberá correr el código presente entre las lineas 8 y 30.
 - Ya tras cumplir con los pasos anteriores puede correr la función "main()".
     Nota: Debe llamar la función cada vez que quiera acceder a una opción.
+
+#### PROGRAMA 3 ####
+**Nota**: El PDF del programa 3 contiene líneas colapsadas, no encontramos solución a ese problema y por cuestiones de tiempo, optamos por dejarlo así.
