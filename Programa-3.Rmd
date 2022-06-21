@@ -1,0 +1,112 @@
+---
+title: "Funciones de Distribucion (Taller2)"
+output: pdf_document
+date: '2022-06-16'
+---
+
+# Inciso 3
+
+## Graficar función de densidad distribucion uniforme
+
+dunif(x, min, max, log)
+
+-   **x =** Valores del eje X
+
+-   **min =** Limite inferior (corresponde a uno de los limites de la distribucion)
+
+-   **max =** Limite superior (corresponde a uno de los limites de la distribucion)
+
+-   **log =** Indicar TRUE si desea devolver las probabilidades en log, de lo contrario indicar FALSE
+
+    ```{r}
+    #Se generan los valores de X. (x > 0)
+
+    Vec1= c(1:10)
+
+    #Se realiza la funcion de densidad con dunif() (Los limites deben tener sentido de tal forma que el limite inferior no sea mayor al limite superior, si no se cumple esto podria generar un error en el calculo).
+
+    a= dunif(x= Vec1, min = 0, max = 5)
+    a
+
+    #Se procede a graficar utilizando plot(), especificando valores opciones como el color o la forma (type).
+
+    plot(Vec1, a, type="l", col="red")
+    ```
+
+## Graficar función de densidad distribucion de Bernoulli (binomial)
+
+dbinom(x, size, prob, log)
+
+-   **x =** Valores del eje X
+
+-   **size =** Tamaño o numero de ensayos
+
+-   **prob =** Probabilidad de exito
+
+-   **log =** Indicar TRUE si desea devolver las probabilidades en log, de lo contrario indicar FALSE
+
+```{r}
+#Se generan los valores de X.(x > 0)
+
+Vec1= c(1:50)
+
+#Se realiza la funcion dbinom() correspondiente a la funcion de densidad de una distribucion de Bernoulli (Los valores de size y prob deben ser positivos para evitar errores en los calculos de la funcion).
+
+b= dbinom(x= Vec1, size = 50, prob = 0.4)
+b
+
+#Se grafica con la funcion plot() el resultado de la distribucion, asi tambien como especificar a que corresponden tanto el eje X (xlab) como el eje Y (ylab).(Se pueden utilizar parametros adicionales como darle color, el grosor de las lineas o el tipo).
+
+plot(b, type="h",lwd="2", xlab="Número de exitos", ylab="Probabilidad P(X=x)", col="pink")
+```
+
+## Graficar función de densidad distribucion de Poisson
+
+dpois(x, lambda, log )
+
+-   **x =** Valores del eje X.
+
+-   **lambda =** número medio de eventos que suceden en un espacio determinado.
+
+-   **log =** Indicar TRUE si desea devolver las probabilidades en log, de lo contrario indicar FALSE.
+
+```{r}
+#Se generan los valores de X. (x > 0)
+
+Vec1 = c(1:50)
+
+#Se utiliza la funcion dpois() correspondiendo a la densidad de distribucion de Poisson teniendo en cuenta que los valores de lambda deben ser mayores a 0 evitando asi errores de calculo. 
+
+c= dpois(Vec1, lambda = 5)
+c
+
+#Se grafica con la funcion plot() el resultado de la distribucion y se especifican a que corresponden tanto el eje X (xlab) como el eje Y (ylab). (Se pueden utilizar parametros adicionales como darle color, el grosor de las lineas o el tipo).
+
+plot(c, type="h", xlab= "Número de eventos", ylab= "Probabilidad P(X=x)",lwd="2", col="lightblue")
+```
+
+## Graficar función de densidad distribucion exponencial
+
+dexp(x, rate , log )
+
+-   **x =** Valores del eje X
+
+-   **rate =** Valor o parametro de lambda
+
+-   **log =** Indicar TRUE si desea devolver las probabilidades en log, de lo contrario indicar FALSE
+
+```{r}
+#Se generan los valores de X. (x > 0)
+
+Vec1= c(1:10)
+
+#Se utiliza la funcion dexp() que corresponde a la densidad de distribucion exponencial se debe tener cuidado al momento de ingresar valores de rate debido a que valores menores a 0 supondrian errores de calculos. 
+
+d= dexp(Vec1, rate=1)
+d
+
+#Se realiza la grafica de los resultados con la funcion de graficar plot() especificando valores opciones como el color, el grosor de la linea o la forma (type).
+
+plot(Vec1, d, type="l", lwd="2", col="purple")
+
+```
