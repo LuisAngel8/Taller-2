@@ -33,31 +33,34 @@ dunif(x, min, max, log)
     plot(Vec1, a, type="l", col="red")
     ```
 
-## Graficar función de densidad distribucion de Bernoulli (binomial)
+## Graficar función de densidad distribucion de Bernoulli
 
-dbinom(x, size, prob, log)
+dbern(x, prob, log)
 
 -   **x =** Valores del eje X
 
--   **size =** Tamaño o numero de ensayos
-
--   **prob =** Probabilidad de exito
+-   **prob =** Probabilidad de exito por prueba
 
 -   **log =** Indicar TRUE si desea devolver las probabilidades en log, de lo contrario indicar FALSE
 
 ```{r}
+#R-Studio base no posee ninguna funcion para realizar distribuciones de Bernoulli (Un caso especial de la distribucion binomial), debido a ello primeramente debemos instalar y cargar la libreria "Rlab" que si nos lo permite.
+
+#(install.packages("Rlab"))
+library(Rlab)
+
 #Se generan los valores de X.(x > 0)
 
-Vec1= c(1:50)
+Vec1= c(0:10)
 
-#Se realiza la funcion dbinom() correspondiente a la funcion de densidad de una distribucion de Bernoulli (Los valores de size y prob deben ser positivos para evitar errores en los calculos de la funcion).
+#Se realiza la funcion dbinom() correspondiente a la funcion de densidad de una distribucion de Bernoulli (Los valores de prob deben ser positivos para evitar errores en los calculos de la funcion).
 
-b= dbinom(x= Vec1, size = 50, prob = 0.4)
+b= dbern(x= Vec1, prob = 0.5)
 b
 
 #Se grafica con la funcion plot() el resultado de la distribucion, asi tambien como especificar a que corresponden tanto el eje X (xlab) como el eje Y (ylab).(Se pueden utilizar parametros adicionales como darle color, el grosor de las lineas o el tipo).
 
-plot(b, type="h",lwd="2", xlab="Número de exitos", ylab="Probabilidad P(X=x)", col="pink")
+plot(b, type="l",lwd="2", xlab="x", ylab="dbern()", col="pink")
 ```
 
 ## Graficar función de densidad distribucion de Poisson
